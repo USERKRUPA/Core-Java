@@ -1,0 +1,14 @@
+/*4.1 Display food menu to user. User will select items from menu along with the quantity. (eg 1. Dosa 2. Samosa 3. Idli ... 10 . Generate Bill ) Assign fixed prices to food items(hard code the prices)
+When user enters 'Generate Bill' option(10) , display total bill & exit.*/
+
+
+import java.util.*;
+class FoodMenu{
+
+	public static void main(String[]args){
+		System.out.println("Enter which items you want to select 1.Dosa\n 2.Samosa\n 3.Idli\n 4.Poha\n 5.Uttapam);
+
+
+
+        }
+}
