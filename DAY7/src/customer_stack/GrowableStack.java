@@ -1,39 +1,24 @@
 package customer_stack;
 
-public class GrowableStack implements Stack {
-
-	private Customer[] gs;
-	private int top;
+public class GrowableStack extends FixedStack {
 	public GrowableStack() {
-		gs = new Customer[STACK_SIZE];
-		top = -1;
+		super();
 	}
 	public boolean isFull() {
 		return (top + 1) == STACK_SIZE;
 	}
 	public void growArray() {
 		Customer[] tmpArray = new Customer[STACK_SIZE * 2];
-		for(int i = 0; i < gs.length; i++) {
-			tmpArray[i] = gs[i];
+		for(int i = 0; i < st.length; i++) {
+			tmpArray[i] = st[i];
 		}
-		gs = tmpArray;
+		st = tmpArray;
 	}
 	@Override
 	public void push(Customer c) {
 		if(isFull()) {
 			growArray();
 		}
-		gs[++top] = c;
+		st[++top] = c;
 	}
-	public boolean isEmpty() {
-		return (top == -1);
-	}
-	@Override
-	public Customer pop() {
-		if(isEmpty()){
-			throw new RuntimeException("Stack Underflow...");
-		}
-		return gs[top--];
-	}
-
 }

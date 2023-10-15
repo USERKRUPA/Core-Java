@@ -5,6 +5,6 @@ package customer_stack;
  */
 public interface Stack {
 	int STACK_SIZE = 5;
-	void push(Customer c);
-	Customer pop();
+	void push(Customer c) throws StackException;
+	Customer pop()throws StackException;
 }

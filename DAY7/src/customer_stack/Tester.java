@@ -6,42 +6,46 @@ public class Tester {
 	public static void main(String[] args) {
 		try(Scanner sc = new Scanner(System.in)){
 		boolean flag = false;
-		boolean mutex = false;
+	
 		Stack s = null;
 		while(!flag) {
 			System.out.println("\n1. Fixed Stack\n2. Growable stack\n3. Push\n4. Pop\n5. Exit");
 			System.out.println("Enter your choice:");
 			switch(sc.nextInt()) {
 			case 1:
-				if(!mutex) {
+				if(s == null) {
+					System.out.println("Fixed Stack chosen....");
 					s = new FixedStack();
-					mutex = true;
-					System.out.println("You can perform operation on Fixed Stack....");
 				}
+				else
+					System.out.println("Stack already chosen....");
+				//	throw new StackException("Stack already choosen...");*/
 				break;
 			case 2:
-				if(!mutex) {
-					s = new GrowableStack();
-					mutex = true;
-					System.out.println("You can perform operation on Growable Stack....");
+				if(s == null) {
+					System.out.println("Growable Stack chosen....");
+					s = new GrowableStack();	
 				}
+				else
+					System.out.println("Stack already chosen....");
+				//	throw new StackException("Stack already choosen...");*/
 				break;
 			case 3:
-				if(mutex) {
+				if(s != null) {
 					System.out.println("Enter cutomer detail(id, name, address");
 					s.push(new Customer(sc.nextInt(), sc.next(), sc.next()));
 				}
 				else {
-					System.out.println("No stack choosen...");
+					throw new StackException("No stack choosen...");
 				}
 				break;
 			case 4:
-				if(mutex) {
+				if(s != null) {
 					//Customer cust = s.pop();
-					System.out.println(s.pop().toString());
+					System.out.println(s.pop());
 				}
 				else {
-					System.out.println("No stack choosen...");
+					throw new StackException("No stack choosen...");
 				}
 				break;
 			case 5:
@@ -52,7 +56,7 @@ public class Tester {
 			}
 		}
 		}
-		catch(Exception e) {
+		catch(StackException e) {
 			System.out.println(e.getMessage());
 		}
 	}

@@ -1,10 +1,10 @@
 package customer_stack;
 
 public class FixedStack implements Stack {
-	private Customer[] fs;
-	private int top;
+	protected Customer[] st;
+	protected int top;
 	public FixedStack() {
-		fs = new Customer[STACK_SIZE];
+		st = new Customer[STACK_SIZE];
 		top = -1;
 		System.out.println("You can enter only "+ STACK_SIZE +" elements:");
 	}
@@ -12,20 +12,20 @@ public class FixedStack implements Stack {
 		return (top + 1) == STACK_SIZE;
 	}
 	@Override
-	public void push(Customer c) {
+	public void push(Customer c) throws StackException {
 		if(isFull())
-			throw new RuntimeException("Stack Overflow...");
-		fs[++top] = c;
+			throw new StackException("Stack Overflow...");
+		st[++top] = c;
 	}
 	public boolean isEmpty() {
 		return (top == -1);
 	}
 	@Override
-	public Customer pop() {
+	public Customer pop() throws StackException {
 		if(isEmpty()){
 			throw new RuntimeException("Stack Underflow...");
 		}
-		return fs[top--];
+		return st[top--];
 	}
 
 }
