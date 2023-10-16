@@ -20,16 +20,30 @@ public class Vehicle {
 		this.company = company;
 		this.isAvailable = true;
 	}
-
+	public String getChasisNo() {
+		return chasisNo;
+	}
+	public void setBasePrice(double basePrice) {
+		this.basePrice = basePrice;
+	}
+	public Vehicle(String chasisNo) {
+		this.chasisNo = chasisNo;
+	}
 	@Override
 	public String toString() {
-		return "Vehicle [chasisNo=" + chasisNo + ", color=" + color + ", netprice=" + (getBasePrice() + getCost()) + ", manuDate="
+		return "Vehicle [chasisNo=" + chasisNo + ", color=" + color + ", netprice=" + (getBasePrice() + color.getCost()) + ", manuDate="
 				+ manuDate + ", company=" + company + ", isAvailable=" + isAvailable + "]";
 	}
 
 	public double getBasePrice() {
 		return basePrice;
 	}
-	
-	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Vehicle) {
+			Vehicle vehicleObj = (Vehicle)obj; 
+			return this.chasisNo.equals(vehicleObj.chasisNo);
+		}
+		return false;
+	}
 }
