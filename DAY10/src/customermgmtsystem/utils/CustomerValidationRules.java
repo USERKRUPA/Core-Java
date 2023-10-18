@@ -15,8 +15,8 @@ public class CustomerValidationRules {
 	public static void chkDupCustomer(String email, List<Customer> custList) throws CustomerMgmtException{
 		Customer customer = new Customer(email);
 		if(custList.contains(customer)) 
-			throw new CustomerMgmtException("Email already registered...");
-		System.out.println("iNSIDE DUP CUSTOMER");
+			throw new CustomerMgmtException("Email id already registered...");
+		System.out.println("INSIDE DUP CUSTOMER");
 	}
 	
 	// 4.2 Validate plan : plan must be of supported types
