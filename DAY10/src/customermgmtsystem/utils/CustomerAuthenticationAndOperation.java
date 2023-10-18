@@ -11,14 +11,14 @@ import customermgmtsystem.com.app.core.ServicePlan;
 import customermgmtsystem.customer_exception.CustomerMgmtException;
 
 public class CustomerAuthenticationAndOperation {
-	public static ArrayList<Customer> populateCustomerList(){
-		ArrayList<Customer> customerList = null;
+	public static List<Customer> populateCustomerList(){
+		List<Customer> customerList = new ArrayList<>();
 		//firstName, lastName, email, password, regAmount, dob, plan
-		customerList.add(new Customer("Krupa", "Krupa", "kthumar17@gmail.com", "krupa", 1000.0, LocalDate.of(1991, 5, 17), ServicePlan.valueOf("silver")));
-		customerList.add(new Customer("Sakshi", "Sakshi", "sakshi@gmail.com", "sakshi", 5000, LocalDate.of(2001, 6, 21), ServicePlan.valueOf("diamond")));
-		customerList.add(new Customer("Shraddha", "Shraddha", "shraddha@gmail.com", "shraddha", 2000, LocalDate.of(1998, 1, 3), ServicePlan.valueOf("gold")));
-		customerList.add(new Customer("Shivani", "Shivani", "Shivani@gmail.com", "shivani", 1000, LocalDate.of(1994, 7, 21), ServicePlan.valueOf("silver")));
-		customerList.add(new Customer("Ravi", "Ravi", "Ravi@gmail.com", "ravi", 2000, LocalDate.of(2001, 6, 21), ServicePlan.valueOf("silver")));
+		customerList.add(new Customer("Krupa", "Krupa", "kthumar17@gmail.com", "krupa", 1000.0, LocalDate.of(1991, 5, 17), ServicePlan.valueOf("SILVER")));
+		customerList.add(new Customer("Sakshi", "Sakshi", "sakshi@gmail.com", "sakshi", 5000, LocalDate.of(2001, 6, 21), ServicePlan.valueOf("DIAMOND")));
+		customerList.add(new Customer("Shraddha", "Shraddha", "shraddha@gmail.com", "shraddha", 2000, LocalDate.of(1998, 1, 3), ServicePlan.valueOf("GOLD")));
+		customerList.add(new Customer("Shivani", "Shivani", "Shivani@gmail.com", "shivani", 1000, LocalDate.of(1994, 7, 21), ServicePlan.valueOf("SILVER")));
+		customerList.add(new Customer("Ravi", "Ravi", "Ravi@gmail.com", "ravi", 2000, LocalDate.of(2001, 6, 21), ServicePlan.valueOf("SILVER")));
 		return customerList;
 	}
 	public static String authenticateCustomer(String email, String password, List<Customer> customerList)
