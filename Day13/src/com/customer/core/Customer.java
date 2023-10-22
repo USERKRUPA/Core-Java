@@ -2,7 +2,7 @@ package com.customer.core;
 
 import java.time.LocalDate;
 
-public class Customer{
+public class Customer implements Comparable<Customer>{
 	private int custId;
 	private String firstName;
 	private String lastName;
@@ -71,12 +71,8 @@ public class Customer{
 	@Override
 	public String toString() {
 		return "Customer [custId=" + custId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", dob=" + dob + ", plan=" + plan + ", lastSubscriptionPaid="+ lastSubscriptionPaidDate+" ]";
-	}
-
-	@Override
-	public int compareTo(Customer cust) {
-		return this.getEmail().compareTo(cust.getEmail());
+				+ ", password=" + password + ", regAmt=" + regAmt + ", dob=" + dob + ", plan=" + plan
+				+ ", lastSubscriptionPaidDate=" + lastSubscriptionPaidDate + "]";
 	}
 
 	public LocalDate getDob() {
@@ -89,6 +85,11 @@ public class Customer{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public int compareTo(Customer o) {
+		return this.getEmail().compareTo(o.getEmail());
 	}
 	
 	
